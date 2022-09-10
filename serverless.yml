@@ -37,11 +37,15 @@ resources:
 
 
 functions:
-  hello:
-    handler: handler.hello
   createCustomer:
     handler: createCustomer.handler
     events:
       - httpApi:
           path: /createcustomer
           method: post
+  getCustomers:
+    handler: getCustomers.getCustomers
+    events:
+      - httpApi:
+          path: /getcustomer
+          method: get
