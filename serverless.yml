@@ -21,7 +21,7 @@ provider:
   environment:
     DYNAMODB_CUSTOMER_TABLE: ${self:service}-customerTable-${sls:stage}
 
-resources:
+resources: # The "Resources" your "Functions" use. Raw AWS CloudFormation goes in here.
   Resources:
     CustomerTable:
       Type: AWS::DynamoDB::Table
@@ -39,7 +39,7 @@ resources:
 functions:
   createCustomer:
     handler: createCustomer.handler
-    events:
+    events: # The "Events" that trigger this function
       - httpApi:
           path: /createcustomer
           method: post
